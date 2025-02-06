@@ -32,11 +32,14 @@ class _Task5State extends State<Task5> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(
+                  height: 50,
+                ),
                 // network image logo (url https://www.google.com/url?sa=i&url=https%3A%2F%2Ffreelogopng.com%2Forange-logo-png&psig=AOvVaw0CgNMykY8e5Bct9XNHa_e5&ust=1738913683845000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCODunLXErosDFQAAAAAdAAAAABAP)
                 Image.network(
                   'https://th.bing.com/th/id/OIP.R9hlHkXgSDP2lbJSrnEQjAHaHa?w=216&h=216&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-                  height: 100,
-                  width: 300,
+                  height: 200,
+                  width: 200,
                 ),
                 // sized box height 16
                 SizedBox(
@@ -58,7 +61,7 @@ class _Task5State extends State<Task5> {
                 SizedBox(
                   height: 16,
                 ),
-                // text form field password
+                // text form field password //
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
@@ -76,37 +79,79 @@ class _Task5State extends State<Task5> {
                   height: 16,
                 ),
                 // login button (Elivated Button , onpressed -> validate -> if valid -> show snackbar with login successfuly , else show snackbar with error)
-                ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('Login Successfuly'),
-                        ),
-                      );
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('Error'),
-                        ),
-                      );
-                    }
-                  },
-                  // button style -> backgroundColor deep orange and padding vertical 15 horizontal 30 radius 20
-                  style: ElevatedButton.styleFrom(
-                    //primary: Colors.white,
-                    backgroundColor: Colors.deepOrange,
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 15,
-                      horizontal: 30,
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState?.validate() ?? false) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: Colors.deepOrange,
+                            content: Text(
+                              'Login Successfuly and Navigate to Home Page',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Error'),
+                          ),
+                        );
+                      }
+                    },
+                    // button style -> backgroundColor deep orange and padding vertical 15 horizontal 30 radius 20
+                    style: ElevatedButton.styleFrom(
+                      //primary: Colors.white,
+                      backgroundColor: Colors.deepOrange,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 15,
+                        horizontal: 30,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
+                    child: Text(
+                      'Login',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
-                  child: Text(
-                    'Login',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Colors.deepOrange,
+                          content: Text(
+                            'Navigate to Sign Up Page',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      );
+                    },
+                    // button style -> backgroundColor deep orange and padding vertical 15 horizontal 30 radius 20
+                    style: ElevatedButton.styleFrom(
+                      //primary: Colors.white,
+                      backgroundColor: Colors.deepOrange,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 15,
+                        horizontal: 30,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
                   ),
                 ),
               ],
