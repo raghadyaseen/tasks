@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/tasks/task8.dart';
+import 'package:tasks/tasks/task10.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Task8(),
+      home: Task10(),
       debugShowCheckedModeBanner: false,
     );
   }
