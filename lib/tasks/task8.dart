@@ -1,5 +1,5 @@
-import 'dart:convert'; 
 import 'package:flutter/material.dart';
+// import http
 import 'package:http/http.dart' as http;
 
 class Task8 extends StatefulWidget {
@@ -10,61 +10,55 @@ class Task8 extends StatefulWidget {
 }
 
 class _Task8State extends State<Task8> {
-  List<dynamic> listOfProducts = []; 
+  String sample = "";
+  //**************************************** function name and returned data typ 1
+  //void fetchAllProducts()async {}
+  void fetchAllProducts() async {
+    // ************************************** past code from postman (implementation)2
+    var request =
+        http.Request('GET', Uri.parse('https://fakestoreapi.com/products'));
 
-  
-  Future<void> fetchAllProducts() async {
-    try {
-     
-      final url = Uri.parse("https://fakestoreapi.com/products");
-      
-      final response = await http.get(url);
+    http.StreamedResponse response = await request.send();
 
-      if (response.statusCode == 200) {
-       
-        final data = json.decode(response.body);
-        setState(() {
-          listOfProducts = data; 
-        });
-      } else {
-        print("Failed to load data. Status code: ${response.statusCode}");
-      }
-    } catch (e) {
-      print("Error: $e");
+    if (response.statusCode == 200) {
+      print("========================== Retrived data");
+      print(await response.stream.bytesToString());
+    } else {
+      print("Error");
+      print(response.reasonPhrase);
     }
   }
+  // void callOpenAiApi(data (video to data )) async {
+  //   // ************************************** past code from postman (implementation)2
+  //   var request =
+  //       http.Request('POST', Uri.parse('https://fakestoreapi.com/products'));
+
+  //   http.StreamedResponse response = await request.send();
+
+  //   if (response.statusCode == 200) {
+  // sample = await response.stream.bytesToString();
+  //     print("========================== Retrived data");
+  //     print(await response.stream.bytesToString());
+  //   } else {
+  //     print("Error");
+  //     print(response.reasonPhrase);
+  //   }
+  // }
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
-    fetchAllProducts(); 
+    // call async function **********************3
+    fetchAllProducts();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Async real example using Postman"),
-      ),
-      body: listOfProducts.isEmpty
-          ? const Center(
-              child: CircularProgressIndicator(), 
-            )
-          : ListView.builder(
-              itemCount: listOfProducts.length,
-              itemBuilder: (context, index) {
-                final product = listOfProducts[index];
-                return ListTile(
-                  title: Text(product['title']), 
-                  subtitle: Text("\$${product['price']}"),
-                  leading: Image.network(
-                    product['image'],
-                    width: 50,
-                    height: 50,
-                  ),
-                );
-              },
-            ),
-    );
+        appBar: AppBar(
+          title: Text("Async real example using postman"),
+        ),
+        body: Container());
   }
 }

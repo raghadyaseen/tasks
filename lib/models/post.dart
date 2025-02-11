@@ -1,12 +1,12 @@
-class post {
+class Post {
   int? userId;
   int? id;
   String? title;
   String? body;
 
-  post({this.userId, this.id, this.title, this.body});
+  Post({this.userId, this.id, this.title, this.body});
 
-  post.fromJson(Map<String, dynamic> json) {
+  Post.fromJson(Map<String, dynamic> json) {
     userId = json['userId'];
     id = json['id'];
     title = json['title'];

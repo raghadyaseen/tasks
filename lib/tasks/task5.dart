@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 
+import 'task6.dart';
+import 'task7.dart';
+
 class Task5 extends StatefulWidget {
   const Task5({super.key});
 
@@ -11,6 +14,8 @@ class Task5 extends StatefulWidget {
 
 class _Task5State extends State<Task5> {
   // ***************************************** this part is for the login page data and validation
+  // mobile number controller
+  final TextEditingController _mobileController = TextEditingController();
   // email TextEditingController
   final TextEditingController _emailController = TextEditingController();
   // password TextEditingController
@@ -35,9 +40,10 @@ class _Task5State extends State<Task5> {
                 SizedBox(
                   height: 50,
                 ),
+
                 // network image logo (url https://www.google.com/url?sa=i&url=https%3A%2F%2Ffreelogopng.com%2Forange-logo-png&psig=AOvVaw0CgNMykY8e5Bct9XNHa_e5&ust=1738913683845000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCODunLXErosDFQAAAAAdAAAAABAP)
                 Image.network(
-                  'https://th.bing.com/th/id/OIP.R9hlHkXgSDP2lbJSrnEQjAHaHa?w=216&h=216&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+                  'https://1000logos.net/wp-content/uploads/2017/04/Orange-Logo.png',
                   height: 200,
                   width: 200,
                 ),
@@ -84,6 +90,7 @@ class _Task5State extends State<Task5> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState?.validate() ?? false) {
+                        //***************  1
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             backgroundColor: Colors.deepOrange,
@@ -92,6 +99,11 @@ class _Task5State extends State<Task5> {
                               style: TextStyle(fontSize: 18),
                             ),
                           ),
+                        );
+                        // 2 navigate home page if success validate user account
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Task7()),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -126,6 +138,7 @@ class _Task5State extends State<Task5> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
+                      // 1
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           backgroundColor: Colors.deepOrange,
@@ -134,6 +147,11 @@ class _Task5State extends State<Task5> {
                             style: TextStyle(fontSize: 18),
                           ),
                         ),
+                      );
+                      // 2 navigate to sign up page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Task6()),
                       );
                     },
                     // button style -> backgroundColor deep orange and padding vertical 15 horizontal 30 radius 20
