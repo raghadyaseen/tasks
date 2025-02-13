@@ -25,6 +25,8 @@ class ProductProvider with ChangeNotifier {
     // 3.2
     try {
       // 3.2.1
+      // final response =
+      //     await http.get(Uri.parse('https://fakestoreapi.com/products'));
       final response =
           await http.get(Uri.parse('https://fakestoreapi.com/products'));
       // 3.2.2
