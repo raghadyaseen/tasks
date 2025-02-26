@@ -7,10 +7,16 @@ import 'package:provider/provider.dart';
 import 'components/task 16.dart';
 import 'providers/login_provider.dart';
 import 'providers/product_provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 //import 'views/product_view_widget.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     MultiProvider(
       providers: [

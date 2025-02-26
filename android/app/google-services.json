@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "702083419047",
+    "project_id": "task-cpf",
+    "storage_bucket": "task-cpf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702083419047:android:a455ab5021dc023e30c482",
+        "android_client_info": {
+          "package_name": "com.example.tasks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxTF3jjbiD8HcxNPWDldjorLd69f2E5Lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
